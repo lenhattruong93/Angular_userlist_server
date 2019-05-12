@@ -1,4 +1,5 @@
-﻿using RESTApi.Entity;
+﻿using RESTApi.DTOs;
+using RESTApi.Entity;
 using RESTApi.Service;
 using System;
 using System.Collections.Generic;
@@ -17,8 +18,16 @@ namespace RESTApi.Controllers
         {
             //kHAI BAO BIEN
             UserService userservice = new UserService();
-            var users = userservice.GetUser();
-            return users;
+            return userservice.GetUser();
+           
+        }
+        [HttpPost()]
+        [Route("")]
+        public void AddNewUser(AddNewUserRequest request)
+        {
+            UserService userservice = new UserService();
+            userservice.AddUser(request);
+
         }
     }
 }
