@@ -18,7 +18,7 @@ namespace RESTApi.Service
         internal void AddUser(AddNewUserRequest request)
         {
             User user = new User();
-            user.FistName = request.FistName;
+            user.FirstName = request.FirstName;
             user.LastName = request.LastName;
             user.UserName = request.UserName;
             RESTDbContext context = new RESTDbContext();
