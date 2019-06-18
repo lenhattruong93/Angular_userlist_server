@@ -16,10 +16,15 @@ namespace RESTApi.Controllers
         [Route("")]
         public IList<User> GetUser()
         {
-            //kHAI BAO BIEN
             UserService userservice = new UserService();
-            return userservice.GetUser();
-           
+            return userservice.GetUsers();       
+        }
+        [HttpGet()]
+        [Route("{userId}")]
+        public User GetUser(int userId)
+        {
+            UserService userservice = new UserService();
+            return userservice.GetUser(userId);
         }
         [HttpPost()]
         [Route("")]
@@ -27,6 +32,13 @@ namespace RESTApi.Controllers
         {
             UserService userservice = new UserService();
             userservice.AddUser(request);
+        }
+        [HttpPut()]
+        [Route("userId")]
+        public void UpdateUser(int userId, UpdateUserRequest request)
+        {
+            UserService userservice = new UserService();
+            userservice.UpdateUser(request);
 
         }
     }
