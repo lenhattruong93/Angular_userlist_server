@@ -34,9 +34,10 @@ namespace RESTApi.Controllers
             userservice.AddUser(request);
         }
         [HttpPut()]
-        [Route("userId")]
+        [Route("{userId}")]
         public void UpdateUser(int userId, UpdateUserRequest request)
         {
+            request.Id = userId;
             UserService userservice = new UserService();
             userservice.UpdateUser(request);
 

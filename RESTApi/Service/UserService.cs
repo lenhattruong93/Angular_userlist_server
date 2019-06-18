@@ -35,6 +35,7 @@ namespace RESTApi.Service
         {
             RESTDbContext context = new RESTDbContext();
             User user = context.User.FirstOrDefault(item => item.Id == request.Id);
+         
             user.FirstName = request.FirstName;
             user.LastName = request.LastName;
             user.UserName = request.UserName;
